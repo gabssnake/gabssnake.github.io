@@ -1,0 +1,42 @@
+html {
+    background: #212;
+    color: #6fb;
+    font-size: 20px;
+}
+@media (max-width: 480px) {
+    html { font-size: 4vw; }
+}
+
+::selection {
+    background: #6fb;
+    color: #212;
+}
+
+body {
+    font: 1rem/1.3 Menlo, monospace;
+    text-align: center;
+}
+
+pre {
+    display: inline-block;
+    font-family: inherit;
+    text-align: left;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    background: #f06;
+    color: #002;
+    display: inline-block;
+    margin: 0.2em;
+    padding: 0.2em;
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    background: #6fb;
+}
