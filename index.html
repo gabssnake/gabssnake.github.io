@@ -2,33 +2,84 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <title>Hello world</title>
+  <title>Hola!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" type="text/css" href="swag.css" />
-</head>
-<body>
-  <pre>
-
-   --------------------------  
- /  So long, and thanks       \
- \     for all the coffee.    /
-   --------------------------  
-                \              
-                _              
-              ()'`;            
-              /\|`             
-          (  /  |              
-           )/_)_|_             
-  </pre>
-
-  <ul>
-      <li><a href="https://twitter.com/gabssnake">twitter @gabssnake</a></li>
-      <li><a href="https://github.com/gabssnake">github @gabssnake</a></li>
-  </ul>
-</body>
-</html>
-
-<!--
+  <script type="text/javascript" src="cowsay.js"></script>
+  <!--
   Currently hosted on Github. Previously hosted on AwardSpace,
   Netfirms, Homestead, Angelfire and GeoCities in the 2000s.
+  -->
+</head>
+<body>
+
+<header>
+██╗  ██╗  ██████╗  ██╗       █████╗  ██╗
+██║  ██║ ██╔═══██╗ ██║      ██╔══██╗ ██║
+███████║ ██║   ██║ ██║      ███████║ ██║
+██╔══██║ ██║   ██║ ██║      ██╔══██║ ╚═╝
+██║  ██║ ╚██████╔╝ ███████╗ ██║  ██║ ██╗
+╚═╝  ╚═╝  ╚═════╝  ╚══════╝ ╚═╝  ╚═╝ ╚═╝
+</header>
+
+<blockquote>
+Study hard what interests you the most in the most undisciplined,
+irreverent and original manner possible.
+-- Feynmann
+</blockquote>
+
+<ul>
+  <li><a href="https://twitter.com/gabssnake">twitter @gabssnake</a></li>
+  <li><a href="https://github.com/gabssnake">github @gabssnake</a></li>
+</ul>
+
+<template>
+<!--
+Study hard what interests you the most in the most undisciplined, irreverent and original manner possible.
+    -- Feynmann
+%
+I would believe only in a God that knows how to Dance.
+    -- Nietzsche
+%
+Learn how to listen as things speak for themselves.
+    -- Matsuo Bashō
+%
+Get this in mind early: We never grow up.
+    -- Richard Bach
+--><!--
+    __    /
+   ()'`; /
+   /\|`
+) /  |
+(/_)_|_
+--><!--
+     __    /
+(___()'`; /
+/,    /`
+\\"--\\
+--><!--
+   _    /
+,_(')<
+\___)
+--><!--
+           /
+   |      /
+   + \
+   \\.G_.*=.
+    `(#'/.\|
+     .>' (_--.
+  _=/d   ,^\
+ ~~ \)-'   '
+    / |      
+   '  '
 -->
+</template>
+
+<script type="text/javascript">
+  render(
+    document.querySelector('template').content,
+    document.querySelector('blockquote')
+  )
+</script>
+</body>
+</html>

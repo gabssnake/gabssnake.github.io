@@ -1,8 +1,13 @@
 html {
+    align-items: center;
     background: #212;
     color: #6fb;
+    display: flex;
     font-size: 20px;
+    height: 100%;
+    justify-content: center;
 }
+
 @media (max-width: 480px) {
     html { font-size: 4vw; }
 }
@@ -17,10 +22,18 @@ body {
     text-align: center;
 }
 
-pre {
+header {
+    color: #f06;
     display: inline-block;
-    font-family: inherit;
+    font-size: 0.7em;
+    line-height: 1;
     text-align: left;
+    white-space: pre;
+}
+
+blockquote {
+    text-align: left;
+    white-space: pre;
 }
 
 ul {
@@ -30,10 +43,11 @@ ul {
 
 a {
     background: #f06;
+    border-radius: 0.1em;
     color: #002;
     display: inline-block;
     margin: 0.2em;
-    padding: 0.2em;
+    padding: 0.2em 0.4em;
     text-decoration: none;
 }
 
