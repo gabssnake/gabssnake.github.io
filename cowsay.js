@@ -39,18 +39,3 @@ function cowsay(txt, cow = tiny, [top, mid, bot] = bbl, wth = 34) {
     pad(cut(cow), max(ls) - max(cut(cow)))
   ]).join('\n')
 }
-
-function render(dataNode, targetNode) {
-  let rnd = arr => arr[Math.floor(Math.random() * arr.length)]
-
-  // Data is stored in HTML comments to avoid escaping characters.
-  // Ye bet me a scurvy buccaneer. Arr!
-  let store = Array.from(dataNode.childNodes)
-    .filter(n => n.nodeType === Node.COMMENT_NODE)
-    .map(n => n.data)
-
-  let quotes = store.shift().split(/^\%/gm)
-  let cows = store.map(cow => cow.replace(/(^\n|\n$)/gm, ''))
-
-  targetNode.innerHTML = cowsay(rnd(quotes), rnd(cows))
-}

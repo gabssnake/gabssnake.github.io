@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <title>Hi!</title>
+  <title>Hola @gabssnake!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" type="text/css" href="swag.css" />
   <script type="text/javascript" src="cowsay.js"></script>
@@ -12,30 +12,6 @@
   -->
 </head>
 <body>
-
-<header>
-          _____                    _____          
-         /\    \                  /\    \         
-        /::\____\                /::\    \        
-       /:::/    /                \:::\    \       
-      /:::/    /                  \:::\    \      
-     /:::/    /                    \:::\    \     
-    /:::/____/                      \:::\    \    
-   /::::\    \                      /::::\    \   
-  /::::::\    \   _____    ____    /::::::\    \  
- /:::/\:::\    \ /\    \  /\   \  /:::/\:::\    \ 
-/:::/  \:::\    /::\____\/::\   \/:::/  \:::\____\
-\::/    \:::\  /:::/    /\:::\  /:::/    \::/    /
- \/____/ \:::\/:::/    /  \:::\/:::/    / \/____/ 
-          \::::::/    /    \::::::/    /          
-           \::::/    /      \::::/____/           
-           /:::/    /        \:::\    \           
-          /:::/    /          \:::\    \          
-         /:::/    /            \:::\    \         
-        /:::/    /              \:::\____\        
-        \::/    /                \::/    /        
-         \/____/                  \/____/         
-</header>
 
 <blockquote>
 Study hard what interests you the most in the most undisciplined,
@@ -51,32 +27,42 @@ irreverent and original manner possible.
 <template>
 <!--
 Study hard what interests you the most in the most undisciplined, irreverent and original manner possible.
-    -- Feynmann
+  -- Feynman
+%
+The beauty of a living thing is not the atoms that go into it, but the way those atoms are put together.
+  -- Sagan
+%
+We can choose to descend into pessimism and apathy, assuming that nothing can be done, and helping to ensure that the worst will happen. Or we can grasp the opportunities that exist –and they do– and pursue them to the extent that we can, thus helping to contribute to a better world. Not a very hard choice.
+  -- Chomsky
+%
+I learned very early the difference between knowing the name of something and knowing something.
+  -- Feynman
+%
+The welfare of the people is the ultimate law.
+  -- Cicero
+%
+We make, not to have, but to know.
+  -- Alan Kay
+%
+He who loves music can never truly be unhappy.
+  -- Schubert
 %
 I would believe only in a God that knows how to Dance.
-    -- Nietzsche
+  -- Nietzsche
 %
 Learn how to listen as things speak for themselves.
-    -- Matsuo Bashō
-%
-Get this in mind early: We never grow up.
-    -- Richard Bach
+  -- Matsuo Bashō
 --><!--
     __    /
    ()'`; /
    /\|`
 ) /  |
 (/_)_|_
---><!--
-     __    /
-(___()'`; /
-/,    /`
-\\"--\\
---><!--
+%
    _    /
 ,_(')<
 \___)
---><!--
+%
            /
    |      /
    + \
@@ -91,10 +77,22 @@ Get this in mind early: We never grow up.
 </template>
 
 <script type="text/javascript">
-  render(
-    document.querySelector('template').content,
-    document.querySelector('blockquote')
-  )
+function render(dataNode, targetNode) {
+  let rnd = arr => arr[Math.floor(Math.random() * arr.length)]
+
+  // Quotes and cows are stored in HTML comments to avoid escaping characters.
+  // Ye bet me a scurvy buccaneer. Arr!
+  let [quotes, cows] = Array.from(dataNode.childNodes)
+    .filter(n => n.nodeType === Node.COMMENT_NODE)
+    .map(n => n.data.split(/^\%/gm).map(v => v.replace(/(^\n|\n$)/gm, '')))
+
+  targetNode.innerHTML = cowsay(rnd(quotes), rnd(cows))
+}
+
+render(
+  document.querySelector('template').content,
+  document.querySelector('blockquote')
+)
 </script>
 </body>
 </html>

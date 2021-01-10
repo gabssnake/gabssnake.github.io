@@ -1,11 +1,20 @@
+html, body {
+    margin: 0;
+}
+
 html {
     align-items: center;
-    background: #212;
     color: #6fb;
     display: flex;
     font-size: 20px;
     height: 100%;
     justify-content: center;
+    background:
+        radial-gradient(#111 2px, transparent 3px),
+        radial-gradient(#111 2px, transparent 3px),
+        #212;
+    background-position: 0 0, 20px 20px;
+    background-size: 40px 40px;
 }
 
 @media (max-width: 480px) {
@@ -20,15 +29,6 @@ html {
 body {
     font: 1rem/1.3 Menlo, monospace;
     text-align: center;
-}
-
-header {
-    color: #f06;
-    display: inline-block;
-    font-size: 0.7em;
-    line-height: 1;
-    text-align: left;
-    white-space: pre;
 }
 
 blockquote {
