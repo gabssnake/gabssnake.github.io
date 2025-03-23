@@ -1,57 +1,97 @@
+
+/* 104kb for the custom font and variations */
+
+@font-face {
+    font-family: 'DejaWeb';
+    src: url('fonts/DejaWeb-BoldItalic.woff2') format('woff2');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DejaWeb';
+    src: url('fonts/DejaWeb-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DejaWeb';
+    src: url('fonts/DejaWeb-Italic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DejaWeb';
+    src: url('fonts/DejaWeb.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+  --bg-mild: #E4E1D3;
+  --bg-accent: #FFFF00;
+  --bg-light: #FFFFFF;
+}
+
 html, body {
     margin: 0;
-}
-
-html {
-    align-items: center;
-    color: #6fb;
-    display: flex;
-    font-size: 20px;
-    height: 100%;
-    justify-content: center;
-    background:
-        radial-gradient(#111 2px, transparent 3px),
-        radial-gradient(#111 2px, transparent 3px),
-        #212;
-    background-position: 0 0, 20px 20px;
-    background-size: 40px 40px;
-}
-
-@media (max-width: 480px) {
-    html { font-size: 4vw; }
-}
-
-::selection {
-    background: #6fb;
-    color: #212;
+    background-color: var(--bg-mild);
 }
 
 body {
-    font: 1rem/1.3 Menlo, monospace;
+    font: 1.4rem/1.4 'DejaWeb', sans-serif;
+}
+
+section, header, footer {
+    padding: 2rem 3rem;
+}
+
+h1, h2, h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.3rem;
+    margin-top: 3rem;
+}
+
+h1 {
+    display: inline-block;
+    background-color: var(--bg-accent);
+    padding: 0.4rem 0.5em 0.3rem;
+    box-decoration-break: clone;
+    margin: 1rem auto;
+}
+
+header, footer {
+    text-align: center;
+    background-color: var(--bg-light);
+}
+
+footer {
+    margin-top: 4rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1, h2, h3, p {
+    max-width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+figure {
+    margin: 2rem auto 0;
+    max-width: 100rem;
     text-align: center;
 }
 
-blockquote {
-    text-align: left;
-    white-space: pre;
-    margin: 1rem 0;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-a {
-    background: #f06;
-    border-radius: 0.1em;
-    color: #002;
-    display: inline-block;
-    margin: 0.2em;
-    padding: 0.2em 0.4em;
-    text-decoration: none;
-}
-
-a:hover, a:active {
-    background: #6fb;
+figure img {
+    margin: 0 auto;
 }

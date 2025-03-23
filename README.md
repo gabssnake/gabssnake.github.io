@@ -1,4 +1,4 @@
 
-All your git are belong to us.
+My website.
 
 https://gabssnake.github.io
