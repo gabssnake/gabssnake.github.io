@@ -1,0 +1,57 @@
+html, body {
+    margin: 0;
+}
+
+html {
+    align-items: center;
+    color: #6fb;
+    display: flex;
+    font-size: 20px;
+    height: 100%;
+    justify-content: center;
+    background:
+        radial-gradient(#111 2px, transparent 3px),
+        radial-gradient(#111 2px, transparent 3px),
+        #212;
+    background-position: 0 0, 20px 20px;
+    background-size: 40px 40px;
+}
+
+@media (max-width: 480px) {
+    html { font-size: 4vw; }
+}
+
+::selection {
+    background: #6fb;
+    color: #212;
+}
+
+body {
+    font: 1rem/1.3 Menlo, monospace;
+    text-align: center;
+}
+
+blockquote {
+    text-align: left;
+    white-space: pre;
+    margin: 1rem 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    background: #f06;
+    border-radius: 0.1em;
+    color: #002;
+    display: inline-block;
+    margin: 0.2em;
+    padding: 0.2em 0.4em;
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    background: #6fb;
+}
