@@ -36,13 +36,12 @@
     font-display: swap;
 }
 
-html, body {
-    background-color: var(--bg-mild);
-    margin: 0;
-}
-
 body {
-    font: 1.4rem/1.4 'DejaWeb', sans-serif;
+    background-color: var(--bg-mild);
+    font-family: 'DejaWeb', sans-serif;
+    font-size: clamp(1rem, 2.7vw, 1.7rem);
+    line-height: 1.4;
+    margin: 0;
 }
 
 header, footer {
@@ -55,8 +54,9 @@ footer {
 }
 
 section, header, footer {
-    padding: 2rem 3rem;
+    padding: 2rem 7vw;
 }
+
 
 h1, h2, h3 {
     font-weight: bold;
@@ -69,19 +69,21 @@ h1 {
     background-color: var(--bg-accent);
     box-decoration-break: clone;
     display: inline-block;
-    margin: 1rem auto;
+    margin: 2rem auto;
+    overflow-wrap: break-word;
     padding: 0.4rem 0.5em 0.3rem;
+    word-break: break-word;
 }
 
 h1, h2, h3, p {
     margin-left: auto;
     margin-right: auto;
-    max-width: 50rem;
+    max-width: 60rem;
 }
 
 figure {
     margin: 2rem auto 0;
-    max-width: 100rem;
+    max-width: 150vh;
     text-align: center;
 }
 
