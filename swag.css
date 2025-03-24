@@ -1,18 +1,13 @@
-
-/* 104kb for the custom font and variations */
-
-@font-face {
-    font-family: 'DejaWeb';
-    src: url('fonts/DejaWeb-BoldItalic.woff2') format('woff2');
-    font-weight: 700;
-    font-style: italic;
-    font-display: swap;
+:root {
+  --bg-mild: #E4E1D3;
+  --bg-accent: #FFFF00;
+  --bg-light: #FFFFFF;
 }
 
 @font-face {
     font-family: 'DejaWeb';
-    src: url('fonts/DejaWeb-Bold.woff2') format('woff2');
-    font-weight: 700;
+    src: url('fonts/DejaWeb.woff2') format('woff2');
+    font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
@@ -27,25 +22,36 @@
 
 @font-face {
     font-family: 'DejaWeb';
-    src: url('fonts/DejaWeb.woff2') format('woff2');
-    font-weight: 400;
+    src: url('fonts/DejaWeb-Bold.woff2') format('woff2');
+    font-weight: 700;
     font-style: normal;
     font-display: swap;
 }
 
-:root {
-  --bg-mild: #E4E1D3;
-  --bg-accent: #FFFF00;
-  --bg-light: #FFFFFF;
+@font-face {
+    font-family: 'DejaWeb';
+    src: url('fonts/DejaWeb-BoldItalic.woff2') format('woff2');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
 }
 
 html, body {
-    margin: 0;
     background-color: var(--bg-mild);
+    margin: 0;
 }
 
 body {
     font: 1.4rem/1.4 'DejaWeb', sans-serif;
+}
+
+header, footer {
+    background-color: var(--bg-light);
+    text-align: center;
+}
+
+footer {
+    margin-top: 4rem;
 }
 
 section, header, footer {
@@ -53,37 +59,24 @@ section, header, footer {
 }
 
 h1, h2, h3 {
-    text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 0.3rem;
     margin-top: 3rem;
+    text-transform: uppercase;
 }
 
 h1 {
-    display: inline-block;
     background-color: var(--bg-accent);
-    padding: 0.4rem 0.5em 0.3rem;
     box-decoration-break: clone;
+    display: inline-block;
     margin: 1rem auto;
-}
-
-header, footer {
-    text-align: center;
-    background-color: var(--bg-light);
-}
-
-footer {
-    margin-top: 4rem;
-}
-
-img {
-    max-width: 100%;
+    padding: 0.4rem 0.5em 0.3rem;
 }
 
 h1, h2, h3, p {
-    max-width: 50rem;
     margin-left: auto;
     margin-right: auto;
+    max-width: 50rem;
 }
 
 figure {
@@ -94,4 +87,8 @@ figure {
 
 figure img {
     margin: 0 auto;
+}
+
+img {
+    max-width: 100%;
 }
