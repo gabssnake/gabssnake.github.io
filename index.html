@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>@gabssnake</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    html, body {
+        margin: 0;
+    }
+    html {
+        align-items: center;
+        color: #6fb;
+        display: flex;
+        font-size: 20px;
+        height: 100%;
+        justify-content: center;
+        background: #202;
+        background-position: 0 0, 20px 20px;
+        background-size: 40px 40px;
+    }
+    @media (max-width: 480px) {
+        html { font-size: 4vw; }
+    }
+    ::selection {
+        background: #6fb;
+        color: #202;
+    }
+    body {
+        font: 1rem/1.3 Menlo, monospace;
+        text-align: center;
+    }
+    blockquote {
+        text-align: left;
+        white-space: pre;
+        margin: 1rem 0;
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    a {
+        background: #f06;
+        border-radius: 0.1em;
+        color: #202;
+        display: inline-block;
+        margin: 0.2em;
+        padding: 0.2em 0.4em;
+        text-decoration: none;
+    }
+    a:hover, a:active {
+        background: #6fb;
+    }
+  </style>
+</head>
+<body>
+
+<!--
+Currently hosted on Github. Previously hosted on AwardSpace,
+Netfirms, Homestead, Angelfire and GeoCities in the 2000s.
+-->
+
+<blockquote>
+Study hard what interests you the most in the most undisciplined,
+irreverent and original manner possible.
+-- Feynmann
+</blockquote>
+
+<ul>
+    <li><a href="https://gabssnake.bsky.social/">bsky @gabssnake</a></li>
+    <li><a href="https://github.com/gabssnake">github @gabssnake</a></li>
+</ul>
+
+<template>
+<!--
+Study hard what interests you the most in the most undisciplined, irreverent and original manner possible.
+  -- Feynman
+%
+I learned very early the difference between knowing the name of something and knowing something.
+  -- Feynman
+%
+The beauty of a living thing is not the atoms that go into it, but the way those atoms are put together.
+  -- Sagan
+%
+Our passion for learning... is our tool for survival.
+  -- Sagan
+%
+We can choose to descend into pessimism and apathy, assuming that nothing can be done, and helping to ensure that the worst will happen. Or we can grasp the opportunities that exist –and they do– and pursue them to the extent that we can, thus helping to contribute to a better world. Not a very hard choice.
+  -- Chomsky
+%
+We shouldn’t be looking for heroes, we should be looking for good ideas.
+  -- Chomsky
+%
+The welfare of the people is the ultimate law.
+  -- Cicero
+%
+It is the peculiar quality of a fool to perceive the faults of others and to forget his own.
+  -- Cicero
+%
+We make, not to have, but to know.
+  -- Alan Kay
+%
+He who loves music can never truly be unhappy.
+  -- Schubert
+%
+I would believe only in a God that knows how to Dance.
+  -- Nietzsche
+%
+One must still have chaos in oneself to be able to give birth to a dancing star.
+  -- Nietzsche
+%
+Learn how to listen as things speak for themselves.
+  -- Matsuo Bashō
+%
+Seek not the paths of the ancients; Seek that which the ancients sought.
+  -- Matsuo Bashō
+--><!--
+    __    /
+   ()'`; /
+   /\|`
+) /  |
+(/_)_|_
+%
+   _    /
+,_(')<
+\___)
+%
+          /
+  |      /
+  + \
+  \\.G_.*=.
+   `(#'/.\|
+    .>' (_--.
+ _=/d   ,^\
+~~ \)-'   '
+   / |      
+  '  '
+%
+\   ,__,
+ \  (oo)____
+    (__)    )\
+       ||--|| *
+-->
+</template>
+
+<script type="text/javascript">
+let bbl = [
+    [`.-`, `-`, `-.`],
+    [`| `, ` `, ` |`],
+    [`'-`, `-`, `-'`]
+]
+
+let tiny = `\
+\\   ,__,
+ \\  (oo)____
+    (__)    )\\
+       ||--|| *
+`
+
+function cowsay(txt, cow = tiny, [top, mid, bot] = bbl, wth = 37) {
+    // It’s easier to work with an array of lines
+    let cut = s => s.split('\n')
+
+    // We might need to force word wraps after nth chars
+    let wrp = (s, n) => s.replace(RegExp(`([^\\n]{1,${n}})(\\s|$)`, 'g'), '$1\n').trim()
+
+    // We need to know the longest line to size the bubble and stuff
+    let max = ls => [...ls].sort((a, b) => b.length - a.length).shift().length
+
+    // All rows of the bubble are built in the same way: decor + text + pad + decor
+    let fmt = ([l, m, r], lng, ls = ['']) => ls.map(ln => l + ln.padEnd(lng, m) + r)
+
+    // We want to center cows relative to the speech bubble
+    let pad = (ls, lng) => ls.map(ln => ln.padEnd(max(ls), ' ')).map(ln => ln.padStart(lng, ' '))
+
+    // Array.prototype.flat ponyfill.
+    let flt = arr => [].concat(...arr)
+
+    let ls = cut(wrp(txt, wth))
+
+    return flt([
+        fmt(top, max(ls)),
+        fmt(mid, max(ls), ls),
+        fmt(bot, max(ls)),
+        pad(cut(cow), max(ls) - max(cut(cow)))
+    ]).join('\n')
+}
+
+function render(dataNode, targetNode) {
+    let rnd = arr => arr[Math.floor(Math.random() * arr.length)]
+
+    // Quotes and cows are stored in HTML comments to avoid escaping characters.
+    // Ye bet me a scurvy buccaneer. Arr!
+    let [quotes, cows] = Array.from(dataNode.childNodes)
+        .filter(n => n.nodeType === Node.COMMENT_NODE)
+        .map(n => n.data.split(/^\%/gm).map(v => v.replace(/(^\n|\n$)/gm, '')))
+
+    targetNode.innerHTML = cowsay(rnd(quotes), rnd(cows))
+}
+
+render(
+    document.querySelector('template').content,
+    document.querySelector('blockquote')
+)
+</script>
+</body>
+</html>
